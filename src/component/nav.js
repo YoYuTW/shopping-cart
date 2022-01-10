@@ -26,13 +26,13 @@ const Nav = (props) => {
     <nav style={navStyle}> 
       <h3 style={logoStyle}>阿蜜鳳梨</h3>
       <ul className="nav-links">
-        <Link style={linkStyle} to='/'>
+        <Link style={linkStyle} to='/shopping-cart/'>
           <li>Home</li>
         </Link>
-        <Link style={linkStyle} to='/about'>
+        <Link style={linkStyle} to='/shopping-cart/about'>
           <li>About</li>
         </Link>
-        <Link style={linkStyle} to='/shop'>
+        <Link style={linkStyle} to='/shopping-cart/shop'>
           <li>Shop</li>
         </Link>
       </ul>
