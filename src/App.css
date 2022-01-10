@@ -2,12 +2,12 @@ body {
   margin: 0;
 }
 
-nav {
-  display: flex;
-  background-color: rgb(1, 116, 1);
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .nav-links {

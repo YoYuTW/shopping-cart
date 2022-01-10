@@ -18,7 +18,7 @@ const Item = (props) => {
       <img src={props.img} alt={props.alt} style={picStyle}/>
       <p>{props.amount}</p>
       <p>{props.price}</p>
-      <button>加入購物車</button>
+      <button className={props.set} onClick={props.click}>加入購物車</button>
     </div>
   )
 };
