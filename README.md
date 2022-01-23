@@ -1,6 +1,15 @@
-# Family's Pineapple! #
-use react.js to craft a shopping cart
+# 我家的鳳梨網站 My Family's Pineapple #
 
-NOT CONNECT TO DATABASE YET
+用來練習 `react.js` 的 `useState` 跟 `useEffect`
 
-[sample](https://yoyutw.github.io/shopping-cart/)
+有些 props 傳太多層，會再研究 `useContext` 或是 `Redux` 來改善
+
+目前尚未串接資料庫
+
+[點這邊前往頁面](https://yoyutw.github.io/shopping-cart/)
+
+## Result
+
+![homepage](./demo.png)
+
+* 2022.01.24 新增部分用 `bootstrap` 的練習

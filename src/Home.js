@@ -4,6 +4,8 @@ import homepage from './component/homepage.png';
 const Home = () => {
   const style = {
     backgroundImage: `url(${homepage})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
     height: '66vh',
   }
   return (
