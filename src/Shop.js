@@ -12,12 +12,16 @@ const Shop = (props) => {
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center'
+  };
+
+  const style = {
+    height: '66vh',
   }
 
   return (
-    <div className="page">
+    <div className="page d-flex flex-column align-items-center pt-5" style={style}>
       <h1>銷售方式</h1>
-      <p>每箱鳳梨的數量，以下費用皆含宅配運費</p>
+      <p className="fs-3">每箱鳳梨的數量，以下費用皆含宅配運費</p>
       <br />
       <div className="items" style={itemsStyle}>
         <Item img={setA} amount='每顆約3台斤' price='500元' set="setA" click={props.click}/>             

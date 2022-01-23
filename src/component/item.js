@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 
 const Item = (props) => {
   const itemStyle = {
@@ -16,9 +17,9 @@ const Item = (props) => {
   return (
     <div className="item" style={itemStyle}>
       <img src={props.img} alt={props.alt} style={picStyle}/>
-      <p>{props.amount}</p>
+      <p className="mt-3">{props.amount}</p>
       <p>{props.price}</p>
-      <button className={props.set} onClick={props.click}>加入購物車</button>
+      <Button variant="success" className={props.set} onClick={props.click}>加入購物車</Button>
     </div>
   )
 };

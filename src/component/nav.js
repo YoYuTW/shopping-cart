@@ -1,44 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Navbar, Nav } from "react-bootstrap";
+import icon from "./pineappleBrand.png";
 import ShoppingCart from "./ShoppingCart";
+import { Container } from "react-bootstrap";
 
-const Nav = (props) => {
-  const linkStyle = {
-    color: 'white',
-    fontSize: '3vw',
-  };
-
-  const navStyle = {
-    display: 'flex',
-    backgroundColor: 'rgb(1, 116, 1)',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    height: '10vh',
-  };
-
-  const logoStyle = {
-    color: 'white',
-    fontSize: '4vw',
-    boxSizing: 'border-box',
-  }
+const HomemadeNav = (props) => {
 
   return (
-    <nav style={navStyle}> 
-      <h3 style={logoStyle}>阿蜜鳳梨</h3>
-      <ul className="nav-links">
-        <Link style={linkStyle} to='/shopping-cart/'>
-          <li>Home</li>
-        </Link>
-        <Link style={linkStyle} to='/shopping-cart/about'>
-          <li>About</li>
-        </Link>
-        <Link style={linkStyle} to='/shopping-cart/shop'>
-          <li>Shop</li>
-        </Link>
-      </ul>
-      <ShoppingCart itemCount={props.itemCount} cartItems={props.cartItems} adjustAmount={props.adjustAmount}/>
-    </nav>
+    <Navbar bg="success" expand="lg" className="">
+      <Container>
+        <Navbar.Brand href="/">
+          <img alt='A-bit Pineapple' src={icon} width='64px' height='64px'/> 
+          阿蜜鳳梨 A-bit Pineapple
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
+          <Nav className="ms-auto">
+            <Nav.Link href="/" className="active fs-2" aria-current="page">Home</Nav.Link>
+            <Nav.Link href="/shop" className="active fs-2">Shop</Nav.Link>
+            <ShoppingCart itemCount={props.itemCount} cartItems={props.cartItems} adjustAmount={props.adjustAmount}/>            
+          </Nav>
+        </Navbar.Collapse> 
+      </Container>
+    </Navbar>
   )
 };
 
-export default Nav;
+export default HomemadeNav;

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom"; 
 import './App.css';
-import Nav from "./component/nav";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import HomemadeNav from "./component/nav";
 import Home from "./Home";
 import Shop from "./Shop";
 import Footer from "./component/footer";
@@ -31,18 +32,14 @@ function App() {
       parseInt(previousValue, 10) + parseInt(currentValue, 10));
     setItemAmount(value);
   }, [itemsAmount, cartItems]);
-
-  const pageStyle = {
-    height: '78vh',
-  }
   
   return (
     <BrowserRouter>
-      <Nav itemCount={itemsAmount} cartItems={cartItems} adjustAmount={adjustAmount}/>
-      <div style={pageStyle}>
+      <HomemadeNav itemCount={itemsAmount} cartItems={cartItems} adjustAmount={adjustAmount}/>
+      <div>
         <Routes>
-          <Route path="/shopping-cart/" element={<Home />} />
-          <Route path="/shopping-cart/shop" element={<Shop click={addToCart} />} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/shop" element={<Shop click={addToCart} />} />
         </Routes>
       </div>
       <Footer />
