@@ -9,7 +9,7 @@ const HomemadeNav = (props) => {
   return (
     <Navbar bg="success" expand="lg" className="">
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/shopping-cart/">
           <img alt='A-bit Pineapple' src={icon} width='64px' height='64px'/> 
           阿蜜鳳梨 A-bit Pineapple
         </Navbar.Brand>
