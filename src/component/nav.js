@@ -16,8 +16,8 @@ const HomemadeNav = (props) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
           <Nav className="ms-auto">
-            <Nav.Link href="/" className="active fs-2" aria-current="page">Home</Nav.Link>
-            <Nav.Link href="/shop" className="active fs-2">Shop</Nav.Link>
+            <Nav.Link href="/shopping-cart/" className="active fs-2" aria-current="page">Home</Nav.Link>
+            <Nav.Link href="/shopping-cart/shop" className="active fs-2">Shop</Nav.Link>
             <ShoppingCart itemCount={props.itemCount} cartItems={props.cartItems} adjustAmount={props.adjustAmount}/>            
           </Nav>
         </Navbar.Collapse> 

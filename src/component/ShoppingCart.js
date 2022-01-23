@@ -5,13 +5,7 @@ import ShoppingList from "./ShoppingList";
 
 const ShoppingCart = (props) => {
   const [buttonClick, setButtonClick] = useState(false);
-
-  const listCountStyle = {
-    top: '15%',
-    right: '28%',
-    fontSize: '8px'
-  };
-
+  
   const closeList = () => {
       setButtonClick(false);
   };    

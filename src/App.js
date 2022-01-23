@@ -38,8 +38,8 @@ function App() {
       <HomemadeNav itemCount={itemsAmount} cartItems={cartItems} adjustAmount={adjustAmount}/>
       <div>
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/shop" element={<Shop click={addToCart} />} />
+          <Route path="/shopping-cart/" element={<Home/>} />
+          <Route path="/shopping-cart/shop" element={<Shop click={addToCart} />} />
         </Routes>
       </div>
       <Footer />
