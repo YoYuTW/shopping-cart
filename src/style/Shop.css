@@ -1,0 +1,24 @@
+.pineapple-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-flow: wrap;
+}
+
+.shop {
+  display: flex;
+  flex-flow: column;  
+}
+
+.shop>h1 {
+  text-align: center;
+}
+
+.shop>h3 {
+  text-align: center;
+  color: red;
+}
+
+.shop>p {
+  text-align: center;
+}

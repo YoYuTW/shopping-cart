@@ -12,4 +12,3 @@
 
 ![homepage](./demo.png)
 
-* 2022.01.24 新增部分用 `bootstrap` 的練習

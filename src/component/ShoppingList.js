@@ -1,67 +1,46 @@
-import React, { useState, useEffect } from "react";
-import { Button, Container, Row, Col } from "react-bootstrap";
-import setA from "./setA.png";
-import setB from "./setB.png";
-import setC from "./setC.png";
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import { ShoppingBag } from "../App";
+import setA from "../asset/setA.png";
+import setB from "../asset/setB.png";
+import setC from "../asset/setC.png";
+import "../style/ShoppingList.css";
 
-const ShoppingList = (props) => {
-  const [itemA, setItemA] = useState(0);
-  const [itemB, setItemB] = useState(0);
-  const [itemC, setItemC] = useState(0);
+
+const ShoppingList = () => {
+  const shoppingBag = useContext(ShoppingBag);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    const values = Object.values(props.cartItems);
-    setItemA(values[0]);
-    setItemB(values[1]);
-    setItemC(values[2]);
-  }, [props.cartItems]);
+    const newTotal = shoppingBag.cartItems.setA * 500 + (shoppingBag.cartItems.setB + shoppingBag.cartItems.setC) * 650;
+    setTotal(newTotal);
+  },[shoppingBag.cartItems.setA, shoppingBag.cartItems.setB, shoppingBag.cartItems.setC])
 
-  const listStyle = {
-    height: '100vh',
-    backgroundColor: 'white',
-    zIndex: '2',
-    paddingLeft: '2vw',
-  };
-
-  const blurStyle = {
-    position: 'absolute',
-    backgroundColor: 'rgba(0%, 40%, 0%, 0.4)',
-    height: '100vh',
-    top: '0',
-    left: '0',
-    zIndex: '1'
-  };
-
-  const exitBtnStyle = {
-    display: 'flex',
-    justifyContent: 'end',
-    alignItems: 'center',
-    width: '95%',
-    height: '5vh',
-    fontSize: '3vh',
-    fontWeight: 'strong',
-    color: 'black',
-  };
-
-  return (
-    <Container className="h-100">
-      <Row className="h-100">        
-        <Col xs="0" lg="6" md="7" onClick={props.onClick} style={blurStyle} />
-        <Col xs="12" lg="6" md="5" className="shopping-item position-absolute top-0 end-0" style={listStyle}>
-          <div style={exitBtnStyle} onClick={props.onClick}>X</div>
-          <h2 className="mb-3">Shopping Cart</h2>
-          {itemA ? <ItemInList img={setA} amount='6入' price='500元' count={itemA} adjustAmount={props.adjustAmount} item='setA'/> : null}             
-          {itemB ? <ItemInList img={setB} amount='8入' price='650元' count={itemB} adjustAmount={props.adjustAmount} item='setB'/> : null}
-          {itemC ? <ItemInList img={setC} amount='12入' price='650元' count={itemC} adjustAmount={props.adjustAmount} item='setC'/> : null}
-          <Total itemA={itemA} itemB={itemB} itemC={itemC} />
-          <Button variant="success" disabled>結帳（尚未啟用）</Button>          
-        </Col>
-      </Row>
-    </Container>
+  return (    
+    <div className="spa-content checkout">      
+      <h2>購物車</h2>
+      <div className="items-checkout">
+        {shoppingBag.cartItems.setA ?
+          <ItemInList img={setA} amount='6入' price='500元' count={shoppingBag.cartItems.setA} adjustAmount={shoppingBag.adjustAmount} item='setA'/> : null}
+        {shoppingBag.cartItems.setB ?
+          <ItemInList img={setB} amount='8入' price='650元' count={shoppingBag.cartItems.setB} adjustAmount={shoppingBag.adjustAmount} item='setB'/> : null}
+        {shoppingBag.cartItems.setC ?
+          <ItemInList img={setC} amount='12入' price='650元' count={shoppingBag.cartItems.setC} adjustAmount={shoppingBag.adjustAmount} item='setC'/>: null}
+      </div>
+      <hr />
+      <p className="total">{total}</p>
+      <div className="btns">
+        <button disabled>結帳（尚未啟用）</button>
+        <button>
+          <Link to='/shop'>繼續購物</Link>
+        </button>   
+      </div>          
+    </div>
   )
 };
 
 const ItemInList = (props) => {
+  const adjustAmount = useContext(ShoppingBag).adjustAmount;
   const [counts, setCounts] = useState(props.count); 
 
   const handleChange = (e) => {
@@ -71,16 +50,9 @@ const ItemInList = (props) => {
   };
 
   useEffect(() => {
-    props.adjustAmount(props.item, counts);
+    adjustAmount(props.item, counts);
   }, [counts]);
 
-  const itemStyle = {
-    display: 'flex',
-    gap: '1vw',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginBottom: '1vh',
-  };
 
   const textStyle = {
     display: 'flex',
@@ -101,37 +73,17 @@ const ItemInList = (props) => {
   };
 
   return (
-    <div className="itemInList" style={itemStyle}>
+    <div className="itemInList">
       <img src={props.img} alt={props.alt} style={picStyle}/>
       <div style={textStyle}>
         <span>品項：{props.amount}</span>
         <span>價格：{props.price}</span>
         <div>
           <label>數量：</label>
-          <input style={inputStyle  } type='number' step='1' min='0' max='5' value={counts} onChange={handleChange}/>
+          <input style={inputStyle  } type='number' step='1' min='0' max='3' value={counts} onChange={handleChange}/>
         </div>
       </div>
     </div>
-  )
-}
-
-const Total = (props) => {
-  let total = props.itemA * 500 + (props.itemB + props.itemC) * 650;
-
-  const totalStyle = {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    width: '100%',
-    marginTop: '2vh',
-    fontSize: '2vh',
-    fontWeight: '800',
-    borderTop: '1px black solid',
-    paddingTop: '2vh',
-    marginBottom: '2vh'
-  }
-
-  return (
-    <div style={totalStyle}>總計：{total}元</div>
   )
 }
 

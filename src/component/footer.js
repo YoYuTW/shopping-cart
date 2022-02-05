@@ -1,9 +1,10 @@
 import React from "react";
+import "../style/Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="d-flex flex-column justify-content-center align-items-center text-light bg-success pb-auto">
-      <h1>阿蜜鳳梨 A-bit Pineapple</h1>
+    <footer>
+      <h1>阿蜜鳳梨 A-Bit Pineapple</h1>
       <p>嘉義縣民雄鄉三興村</p>
     </footer>
   )  

@@ -1,25 +1,16 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
+import React, { useContext } from "react";
+import { ShoppingBag } from "../App";
+import '../style/Item.css';
 
 const Item = (props) => {
-  const itemStyle = {
-    display: 'flex',
-    flexFlow: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-
-  const picStyle = {
-    width: '15vh',
-    height: '15vh',
-  }
+  const addToCart = useContext(ShoppingBag).addToCart;
 
   return (
-    <div className="item" style={itemStyle}>
-      <img src={props.img} alt={props.alt} style={picStyle}/>
-      <p className="mt-3">{props.amount}</p>
+    <div className="item">
+      <img src={props.img} alt={props.alt}/>
+      <p>{props.amount}</p>
       <p>{props.price}</p>
-      <Button variant="success" className={props.set} onClick={props.click}>加入購物車</Button>
+      <button className={props.set} onClick={addToCart}>加入購物車</button>
     </div>
   )
 };

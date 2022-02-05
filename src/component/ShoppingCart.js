@@ -1,29 +1,17 @@
-import React, { useState } from "react";
-import { Nav } from "react-bootstrap";
-import shoppingCart from "./shopping-cart.png";
-import ShoppingList from "./ShoppingList";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { ShoppingBag } from "../App";
+import '../style/ShoppingCart.css';
 
-const ShoppingCart = (props) => {
-  const [buttonClick, setButtonClick] = useState(false);
-  
-  const closeList = () => {
-      setButtonClick(false);
-  };    
-
-  const displayItems = () => {
-    setButtonClick(true);
-  };
+const ShoppingCart = () => {
+  const shoppingBag = useContext(ShoppingBag);
 
   return (
-    <React.Fragment>
-      <Nav.Link >  
-        <div className="d-flex align-items-center gap-1 fs-2" onClick={displayItems}>
-          <img src={shoppingCart} alt="" width='48px' height='48px'/> 
-          {props.itemCount}
-        </div>
-      </Nav.Link>
-      {buttonClick ? <ShoppingList onClick={closeList} cartItems={props.cartItems} adjustAmount={props.adjustAmount}/> : null}
-    </React.Fragment>
+    <Link to="/shopping-cart/checkout">
+      <div className="shopping-cart">
+        <p>{shoppingBag.itemsAmount}</p>
+      </div>
+    </Link>
   )
 };
 

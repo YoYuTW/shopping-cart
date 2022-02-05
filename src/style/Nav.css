@@ -1,0 +1,29 @@
+nav {  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 100px;
+}
+
+nav>a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: #fff;
+}
+
+nav>a:visited {
+  color: #fff;
+}
+
+nav>a:first-child {
+  display: flex;
+  align-items: center;
+  color: #000;
+}
+
+@media (min-width: 1000px) {
+  nav {
+    padding: 0 15vw;
+  }
+}

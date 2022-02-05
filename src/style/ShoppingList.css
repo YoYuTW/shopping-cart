@@ -1,0 +1,44 @@
+.checkout {
+  padding-left: 5vw;
+}
+
+.checkout>h2 {
+  margin-top: 0;
+  padding-top: 2vh;  
+}
+
+.items-checkout {
+  display: flex;
+  flex-flow: column;
+  gap: 1vh;
+}
+
+.btns {
+  display: flex;
+  gap: 1vw;
+}
+
+.btns>button>a {
+  text-decoration: none;
+  color: #000;
+}
+
+.btns>button>a:visited {
+  color: #000;
+}
+
+.itemInList {
+  display: flex;
+  gap: 1vw;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1vh;
+}
+
+.total {
+  font-size: 3rem;
+}
+
+.total::before {
+  content: '總計：';
+}

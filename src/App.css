@@ -1,0 +1,22 @@
+.spa-content {
+  min-height: 70vh;
+}
+
+nav,footer {
+  height: 15vh;
+  background-color: rgb(82,148,82);
+}
+
+@media (min-width: 1000px) {
+  .spa-content {
+    min-height: 85vh;
+  }
+  
+  nav {
+    height: 7vh;
+  }
+  
+  footer {
+    height: 8vh;
+  }
+}
