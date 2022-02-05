@@ -3,17 +3,15 @@ import homepage from './component/homepage.png';
 
 const Home = () => {
   const style = {
-    backgroundImage: `url(${homepage})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    height: '66vh',
-  }
+    left: '35%'
+  };
   return (
-    <div className="page d-flex justify-content-center display-1" style={style}>
-      <p className="mt-5">        
+    <div className="d-flex flex-column align-items-stretch justify-content-center display-1 position-relative">
+      <p className="mt-5 flex-fill-1 text-center position-absolute top-0" style={style}>        
         金鑽鳳梨的故鄉
-      </p>     
-    </div>
+      </p>    
+      <img src={homepage} alt='homepage' className="flex-fill-1"/>
+    </div>  
   );
 };
 

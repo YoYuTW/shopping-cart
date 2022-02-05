@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom"; 
-import './App.css';
+import { HashRouter, Routes, Route } from "react-router-dom"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomemadeNav from "./component/nav";
 import Home from "./Home";
@@ -34,16 +33,14 @@ function App() {
   }, [itemsAmount, cartItems]);
   
   return (
-    <BrowserRouter>
-      <HomemadeNav itemCount={itemsAmount} cartItems={cartItems} adjustAmount={adjustAmount}/>
-      <div>
-        <Routes>
-          <Route path="/shopping-cart/" element={<Home/>} />
-          <Route path="/shopping-cart/shop" element={<Shop click={addToCart} />} />
-        </Routes>
-      </div>
+    <HashRouter>
+      <HomemadeNav itemCount={itemsAmount} cartItems={cartItems} adjustAmount={adjustAmount}/>        
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/shop" element={<Shop click={addToCart} />} />
+      </Routes>      
       <Footer />
-    </BrowserRouter>   
+    </HashRouter>   
   );
 }
 
