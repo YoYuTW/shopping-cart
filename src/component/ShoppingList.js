@@ -32,7 +32,7 @@ const ShoppingList = () => {
       <div className="btns">
         <button disabled>結帳（尚未啟用）</button>
         <button>
-          <Link to='/shop'>繼續購物</Link>
+          <Link to='/shopping-cart/shop'>繼續購物</Link>
         </button>   
       </div>          
     </div>
