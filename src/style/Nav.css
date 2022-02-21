@@ -2,11 +2,10 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 30px;
-  padding-right: 100px;
+  padding: 0 30px;
 }
 
-nav>a {
+nav a {
   text-decoration: none;
   font-size: 2rem;
   color: #fff;
@@ -22,8 +21,28 @@ nav>a:first-child {
   color: #000;
 }
 
-@media (min-width: 1000px) {
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+nav>div {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
   nav {
     padding: 0 15vw;
+  }
+
+  .icon>img {
+    max-width: 128px;
+    max-height: 128px;
+  }
+
+  .icon::after {
+    content: "阿蜜鳳梨";
+    font-size: 3rem;
   }
 }

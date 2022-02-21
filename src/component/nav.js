@@ -2,15 +2,20 @@ import React from "react";
 import icon from "../asset/pineappleBrand.png";
 import { Link } from "react-router-dom";
 import '../style/Nav.css';
+import ShoppingCart from "./ShoppingCart";
 
 function Nav() {
   return (
     <nav>
       <Link to='/shopping-cart/'>
-        <img src={icon} alt="a-bit pineapple"/>
-        <h2>阿蜜鳳梨</h2>
+        <div className="icon">
+          <img src={icon} alt="a-bit pineapple"/>
+        </div>
       </Link>
-      <Link to='/shopping-cart/shop'>Shop</Link>      
+      <div>
+        <Link to='/shopping-cart/shop'>Shop</Link>
+        <ShoppingCart />
+      </div>  
     </nav>
   )
 };

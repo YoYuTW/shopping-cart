@@ -1,26 +1,25 @@
 .shopping-cart {
   background-image: url('../asset/shopping-cart.png');
-  height: 50px;
-  width: 50px;
+  width: max(3vw, 48px);
+  height: max(3vw, 48px);
   background-size: cover;
-  position: absolute;
-  top: 7.5vw;
-  right: 15px;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .shopping-cart>p {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  margin: 0;
-  font-weight: bolder;
-  font-size: 16px;
   color: #000;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bolder;
+  transform-origin: center;
+  transform: translate(40%, -15%);
 }
 
-@media (min-width: 1000px) {
-  .shopping-cart {
-    top: 20px;
-    right: 10vw;
+@media (min-width: 768px) {
+  .shopping-cart>p {
+    font-size: clamp(1rem, 1.5vw, 1.8rem);
   }
 }

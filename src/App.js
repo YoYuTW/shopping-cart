@@ -6,7 +6,6 @@ import Shop from "./component/Shop";
 import Footer from "./component/Footer";
 import './App.css';
 import ShoppingList from "./component/ShoppingList";
-import ShoppingCart from "./component/ShoppingCart";
 
 
 export const ShoppingBag = React.createContext();
@@ -43,8 +42,7 @@ function App() {
   return (
     <BrowserRouter>
       <ShoppingBag.Provider value={{ cartItems, itemsAmount, addToCart, adjustAmount }}>
-        <Nav/>
-        <ShoppingCart />
+        <Nav/>        
         <Routes>
           <Route path="/shopping-cart/" element={<Home/>} />
           <Route path="/shopping-cart/shop" element={<Shop click={addToCart} />} />

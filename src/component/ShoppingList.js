@@ -45,11 +45,11 @@ const ItemInList = (props) => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    const newValue = e.target.value;
+    const newValue = e.target.value || 0;
     setCounts(newValue);
   };
 
-  useEffect(() => {
+  useEffect(() => {    
     adjustAmount(props.item, counts);
   }, [counts]);
 
@@ -67,11 +67,6 @@ const ItemInList = (props) => {
     height: '10vh',
   };
 
-  const inputStyle = {
-    fontSize: '2vh',
-    border: 0,
-  };
-
   return (
     <div className="itemInList">
       <img src={props.img} alt={props.alt} style={picStyle}/>
@@ -80,9 +75,14 @@ const ItemInList = (props) => {
         <span>價格：{props.price}</span>
         <div>
           <label>數量：</label>
-          <input style={inputStyle  } type='number' step='1' min='0' max='3' value={counts} onChange={handleChange}/>
+          <select value={counts} onChange={handleChange}>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
         </div>
       </div>
+      <button onClick={handleChange} className="remove-item">移除商品</button>
     </div>
   )
 }

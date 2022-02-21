@@ -7,16 +7,16 @@ nav,footer {
   background-color: rgb(82,148,82);
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 768px) {
   .spa-content {
-    min-height: 85vh;
+    min-height: 80vh;
   }
   
   nav {
-    height: 7vh;
+    height: 10vh;
   }
   
   footer {
-    height: 8vh;
+    height: 10vh;
   }
 }
